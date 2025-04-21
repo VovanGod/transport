@@ -109,5 +109,366 @@ legend {
 }
 
 :root {
-  --orange: #cc9704;
+  --orange: #e4a700;
+}
+
+.mainPg {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+  overflow: hidden;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-animation: page 0.5s ease-in-out forwards;
+          animation: page 0.5s ease-in-out forwards;
+}
+.mainPg .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  row-gap: 8px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Playwrite AU SA", cursive;
+  font-size: 36px;
+  line-height: 30px;
+  color: var(--orange);
+  margin-top: 40px;
+}
+.mainPg .logo img {
+  width: 150px;
+}
+.mainPg .login {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  background: transparent;
+  border: 1px #fff solid;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-family: "Playwrite AU SA", cursive;
+  padding: 6px 20px;
+  -webkit-transition: all 0.08s ease-in;
+  transition: all 0.08s ease-in;
+}
+.mainPg .login:hover {
+  color: #25242a;
+  background: #fff;
+}
+.mainPg p {
+  margin-top: 15px;
+  color: #fff;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-family: "Playwrite AU SA", cursive;
+}
+.mainPg .background {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 40px;
+}
+.mainPg .background a {
+  position: relative;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.mainPg .background a:hover {
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+}
+.mainPg .background a:hover .overlay {
+  background: rgba(0, 0, 0, 0);
+}
+.mainPg .background .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.mainPg .background img {
+  width: 600px;
+  border-radius: 20px;
+}
+.mainPg .background .subtitle {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  background: var(--orange);
+  z-index: 2;
+  padding: 20px 30px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  font-family: "Playwrite AU SA", cursive;
+  font-size: 30px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+@-webkit-keyframes page {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes page {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.formLogin {
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  background-color: #d38a02;
+  background-image: linear-gradient(135deg, #d38a02 0%, #ff9a3c 100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-animation: page 0.5s ease-in-out forwards;
+          animation: page 0.5s ease-in-out forwards;
+}
+.formLogin.active {
+  background-color: #9110e7;
+  background-image: linear-gradient(135deg, #9110e7 0%, #c850ff 100%);
+}
+.formLogin .container {
+  width: 800px;
+  height: 500px;
+  padding: 40px 0;
+  position: relative;
+}
+.formLogin .block {
+  height: 100%;
+  background-color: rgba(225, 225, 225, 0.2);
+  -webkit-box-shadow: 0 5px 45px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 5px 45px rgba(0, 0, 0, 0.2);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.formLogin .block_item {
+  width: 50%;
+}
+.formLogin .block .block-item {
+  text-align: center;
+}
+.formLogin .block .block-item_title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 10px;
+}
+.formLogin .block .block-item_btn {
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: white;
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 30px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.formLogin .block .block-item_btn:hover {
+  -webkit-transform: translateY(-3px);
+          transform: translateY(-3px);
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.formLogin .form-box {
+  background-color: white;
+  height: 100%;
+  width: 50%;
+  -webkit-box-shadow: 0 5px 45px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 5px 45px rgba(0, 0, 0, 0.25);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.formLogin .form-box.active {
+  left: 50%;
+}
+.formLogin .form-box .form {
+  width: 100%;
+  padding: 50px;
+  font-size: 16px;
+  position: absolute;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.formLogin .form-box .form_signin {
+  left: 0;
+  -webkit-transition-delay: 0.25s;
+          transition-delay: 0.25s;
+}
+.formLogin .form-box .form_signup {
+  left: 100%;
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+}
+.formLogin .form-box .form_title {
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.formLogin .form-box .form_input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+.formLogin .form-box .form_input {
+  width: 100%;
+  padding: 15px 20px;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  font-size: inherit;
+  background-color: #f9f9f9;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.formLogin .form-box .form_input:focus {
+  outline: none;
+  border-color: #d38a02;
+  -webkit-box-shadow: 0 0 0 2px rgba(211, 138, 2, 0.2);
+          box-shadow: 0 0 0 2px rgba(211, 138, 2, 0.2);
+}
+.formLogin .form-box .form_btn-group {
+  margin: 30px 0 20px;
+  text-align: center;
+}
+.formLogin .form-box .form_btn {
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+  background-color: #d38a02;
+  color: white;
+  padding: 12px 50px;
+  border-radius: 30px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  width: 100%;
+  font-weight: 500;
+}
+.formLogin .form-box .form_btn:hover {
+  background-color: #b87700;
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
+  -webkit-box-shadow: 0 5px 15px rgba(211, 138, 2, 0.3);
+          box-shadow: 0 5px 15px rgba(211, 138, 2, 0.3);
+}
+.formLogin .form-box .form_btn_signup {
+  background-color: #9110e7;
+}
+.formLogin .form-box .form_btn_signup:hover {
+  background-color: #7a0dc7;
+  -webkit-box-shadow: 0 5px 15px rgba(145, 16, 231, 0.3);
+          box-shadow: 0 5px 15px rgba(145, 16, 231, 0.3);
+}
+.formLogin .form-box .form_link-group {
+  text-align: center;
+}
+.formLogin .form-box .form_forgot {
+  color: #666;
+  text-decoration: none;
+  font-size: 0.9rem;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+.formLogin .form-box .form_forgot:hover {
+  color: #d38a02;
+}
+.formLogin .form-box.active .form_signin {
+  left: -100%;
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+}
+.formLogin .form-box.active .form_signup {
+  left: 0;
+  -webkit-transition-delay: 0.25s;
+          transition-delay: 0.25s;
+}
+.formLogin .form-box.active .form_signup .form_input:focus {
+  border-color: #9110e7;
+  -webkit-box-shadow: 0 0 0 2px rgba(145, 16, 231, 0.2);
+          box-shadow: 0 0 0 2px rgba(145, 16, 231, 0.2);
+}
+.formLogin .form-box.active .form_forgot:hover {
+  color: #9110e7;
+}
+.formLogin .login {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  background: transparent;
+  border: 1px #fff solid;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-family: "Playwrite AU SA", cursive;
+  padding: 6px 20px;
+  -webkit-transition: all 0.08s ease-in;
+  transition: all 0.08s ease-in;
+}
+.formLogin .login:hover {
+  color: #25242a;
+  background: #fff;
 }/*# sourceMappingURL=main.css.map */

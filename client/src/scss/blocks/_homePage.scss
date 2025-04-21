@@ -1,0 +1,121 @@
+.mainPg {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+
+    text-align: center;
+    overflow: hidden;
+    user-select: none;
+    animation: page 0.5s ease-in-out forwards;
+
+    .logo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        row-gap: 8px;
+        align-items: center;
+        font-family: "Playwrite AU SA", cursive;
+        font-size: 36px;
+        line-height: 30px;
+        color: var(--orange);
+        margin-top: 40px;
+
+        img {
+            width: 150px;
+        }
+    }
+
+    .login {
+        position: absolute;
+        top: 30px;
+        right: 50px;
+        background: transparent;
+        border: 1px #fff solid;
+        text-transform: uppercase;
+        color: #fff;
+        font-size: 16px;
+        border-radius: 8px;
+        font-weight: 500;
+        font-family: "Playwrite AU SA", cursive;
+
+        padding: 6px 20px;
+        transition: all 0.08s ease-in;
+
+        &:hover {
+            color: #25242a;
+            background: #fff;
+        }
+    }
+
+    p {
+        margin-top: 15px;
+        color: #fff;
+        font-size: 18px;
+        text-transform: uppercase;
+        font-family: "Playwrite AU SA", cursive;
+
+    }
+
+    .background {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 40px;
+
+        a {
+            position: relative;
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+                transform: scale(1.01);
+
+                .overlay {
+                    background: rgba(0,0,0,0);
+                }
+            }
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right:0;
+            height: 100%;
+            background: rgba(0,0,0,0.2);
+            border-radius: 20px;
+            transition: all 0.2s ease-in-out;
+        }
+
+        img {
+            width: 600px;
+            border-radius: 20px;
+        }
+
+        .subtitle {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            background: var(--orange);
+            z-index: 2;
+
+            padding: 20px 30px;
+            border-top-right-radius: 20px;
+            border-top-left-radius: 20px;
+
+            font-family: "Playwrite AU SA", cursive;
+            font-size: 30px;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+    }
+}
+
+@keyframes page {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
