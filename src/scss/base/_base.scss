@@ -1,0 +1,12 @@
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background: #25242a;
+	color: var(--text-color);
+    font-family: "Open Sans", sans-serif;
+	overflow-x: hidden;
+	max-width: 100%;
+	position: relative;
+}
