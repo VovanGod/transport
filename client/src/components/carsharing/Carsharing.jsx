@@ -1,10 +1,11 @@
 import React from 'react';
+import Basic from './Basic';
 
 const Carsharing = () => {
     return (
-        <div>
-            Someone text
-        </div>
+        <>
+            <Basic/>
+        </>
     );
 };
 

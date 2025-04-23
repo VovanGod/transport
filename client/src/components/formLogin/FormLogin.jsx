@@ -13,7 +13,7 @@ const AuthForm = () => {
 
   return (
     <div className={`formLogin ${isActive ? 'active' : ''}`}>
-        <a href='/' className='login'>Выйти</a>
+        <a href='/' className='login'>Назад</a>
         <article className="container">
         <div className="block">
             <section className="block_item block-item">
@@ -41,9 +41,6 @@ const AuthForm = () => {
             </div>
             <div className="form_btn-group">
                 <button className="form_btn">Войти</button>
-            </div>
-            <div className="form_link-group">
-                <a href="#" className="form_forgot">Восстановить пароль</a>
             </div>
             </form>
 
