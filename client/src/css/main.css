@@ -186,10 +186,11 @@ legend {
   left: 0;
   right: 0;
   height: 100%;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+  z-index: 1;
 }
 .mainPg .background img {
   width: 600px;
@@ -626,4 +627,96 @@ legend {
   top: 0;
   left: 0;
   z-index: -1;
+}
+
+.carsharing-cars {
+  text-align: center;
+  padding: 120px 0 80px 0;
+}
+.carsharing-cars .cards-wrapper {
+  max-width: 1100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 60px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 0 auto;
+  margin-top: 80px;
+}
+.carsharing-cars h1 {
+  font-family: cursive;
+  font-size: 60px;
+  color: #fff;
+}
+.carsharing-cars .card {
+  width: 320px;
+  height: 420px;
+  background: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-bottom: 30px;
+  border: 3px #fff solid;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.2);
+          box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.2);
+  -webkit-transition: all 0.1s ease-in;
+  transition: all 0.1s ease-in;
+}
+.carsharing-cars .card:hover {
+  border: 3px var(--orange) solid;
+}
+.carsharing-cars .card img {
+  border-radius: 10px;
+}
+.carsharing-cars .card .info {
+  padding: 10px 40px;
+  text-align: left;
+}
+.carsharing-cars .card .transmission {
+  font-size: 18px;
+  color: rgb(75, 75, 75);
+}
+.carsharing-cars .card .name {
+  font-size: 24px;
+  margin: 20px 0;
+  font-family: "Playwrite AU SA", cursive;
+  line-height: 20px;
+  margin-left: -5px;
+}
+.carsharing-cars .card p {
+  font-size: 16px;
+  font-family: cursive;
+  color: var(--orange);
+}
+.carsharing-cars .card .price {
+  padding: 15px 0;
+  background: #9110e7;
+  border: 2px #9110e7 solid;
+  -webkit-transition: all 0.06s ease-in;
+  transition: all 0.06s ease-in;
+  width: 180px;
+  margin: 0 auto;
+  margin-top: 20px;
+  border-radius: 12px;
+  font-size: 18px;
+  color: #fff;
+}
+.carsharing-cars .card .price:hover {
+  background: transparent;
+  color: #9110e7;
 }/*# sourceMappingURL=main.css.map */

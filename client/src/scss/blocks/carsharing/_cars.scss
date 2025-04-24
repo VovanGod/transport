@@ -1,0 +1,89 @@
+.carsharing-cars {
+    text-align: center;
+    padding: 120px 0 80px 0;
+    .cards-wrapper {
+        max-width: 1100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 60px;
+        flex-wrap: wrap;
+
+        margin: 0 auto;
+        margin-top: 80px;
+    }
+
+    h1 {
+        font-family: cursive;
+        font-size: 60px;
+        color: #fff;
+    }
+
+    .card {
+        width: 320px;
+        height: 420px;
+        background: #fff;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-bottom: 30px;
+        border: 3px #fff solid;
+
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.2);
+        transition: all 0.1s ease-in;
+
+        &:hover {
+            border: 3px var(--orange) solid;
+        }
+
+        img {
+            border-radius: 10px;
+        }
+
+        .info {
+            padding: 10px 40px;
+            text-align: left;
+        }
+
+        .transmission {
+            font-size: 18px;
+            color: rgb(75, 75, 75);
+        }
+
+        .name {
+            font-size: 24px;
+            margin: 20px 0;
+            font-family: "Playwrite AU SA", cursive;
+            line-height: 20px;
+            margin-left: -5px;
+        }
+
+        p {
+            font-size: 16px;
+            font-family: cursive;
+            color: var(--orange);
+        }
+
+        .price {
+            padding: 15px 0;
+            background: #9110e7;
+            border: 2px #9110e7 solid;
+            transition: all 0.06s ease-in;
+            width: 180px;
+
+            margin: 0 auto;
+            margin-top: 20px;
+            border-radius: 12px;
+
+            font-size: 18px;
+            color: #fff;
+
+            &:hover {
+                background: transparent;
+                color: #9110e7;
+            }
+        }
+    }
+}
