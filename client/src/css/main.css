@@ -589,9 +589,10 @@ legend {
       -ms-user-select: none;
           user-select: none;
 }
-.carsharing-basic button {
+.carsharing-basic .button {
   display: block;
-  padding: 22px 36px;
+  padding: 22px 0;
+  width: 280px;
   color: #141414;
   font-size: 20px;
   line-height: 24px;
@@ -603,7 +604,7 @@ legend {
   -webkit-transition: all 0.1s ease-in;
   transition: all 0.1s ease-in;
 }
-.carsharing-basic button:hover {
+.carsharing-basic .button:hover {
   background: transparent;
   color: #fff;
 }
@@ -631,7 +632,7 @@ legend {
 
 .carsharing-cars {
   text-align: center;
-  padding: 120px 0 80px 0;
+  padding: 100px 0 80px 0;
 }
 .carsharing-cars .cards-wrapper {
   max-width: 1100px;
@@ -657,7 +658,7 @@ legend {
 }
 .carsharing-cars .card {
   width: 320px;
-  height: 420px;
+  height: 450px;
   background: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -719,4 +720,190 @@ legend {
 .carsharing-cars .card .price:hover {
   background: transparent;
   color: #9110e7;
+}
+
+.form-wrapper {
+  background: #000000;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.order-form-container {
+  width: 800px;
+  padding: 2rem;
+  background: #25242a;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+.order-form-container h2 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.success-message {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background: #a739f1;
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  text-align: center;
+  width: 90%;
+  max-width: 500px;
+  -webkit-box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.success-message.visible {
+  opacity: 1;
+  visibility: visible;
+  top: -40px;
+}
+
+.order-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.5rem;
+}
+.form-group label {
+  color: #fff;
+  font-weight: 500;
+}
+.form-group input, .form-group textarea, .form-group select {
+  padding: 0.8rem 1rem;
+  border: 2px solid #494753;
+  border-radius: 5px;
+  background: #313038;
+  color: #fff;
+  font-size: 1rem;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  font-family: cursive;
+}
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+  outline: none;
+  border-color: #9110e7;
+  -webkit-box-shadow: 0 0 0 2px rgba(145, 16, 231, 0.3);
+          box-shadow: 0 0 0 2px rgba(145, 16, 231, 0.3);
+}
+.form-group input::-webkit-input-placeholder, .form-group textarea::-webkit-input-placeholder, .form-group select::-webkit-input-placeholder {
+  color: #878496;
+}
+.form-group input::-moz-placeholder, .form-group textarea::-moz-placeholder, .form-group select::-moz-placeholder {
+  color: #878496;
+}
+.form-group input:-ms-input-placeholder, .form-group textarea:-ms-input-placeholder, .form-group select:-ms-input-placeholder {
+  color: #878496;
+}
+.form-group input::-ms-input-placeholder, .form-group textarea::-ms-input-placeholder, .form-group select::-ms-input-placeholder {
+  color: #878496;
+}
+.form-group input::placeholder, .form-group textarea::placeholder, .form-group select::placeholder {
+  color: #878496;
+}
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.loading {
+  color: #e4a700;
+  text-align: center;
+  padding: 1rem;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #9110e7, #730db7);
+  color: #fff;
+  border: none;
+  padding: 1rem;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: cursive;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.submit-btn:hover {
+  background: linear-gradient(135deg, #9d21f0, #9110e7);
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
+  -webkit-box-shadow: 0 4px 10px rgba(145, 16, 231, 0.3);
+          box-shadow: 0 4px 10px rgba(145, 16, 231, 0.3);
+}
+.submit-btn:active {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+.submit-btn:disabled {
+  background: #494753;
+  cursor: not-allowed;
+  -webkit-transform: none;
+          transform: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
 }/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,140 @@
+$primary-dark: #25242a;
+$primary-light: #fff;
+$accent-yellow: #e4a700;
+$accent-purple: #9110e7;
+
+.form-wrapper {
+  background: #000000;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.order-form-container {
+  width: 800px;
+  padding: 2rem;
+  background: $primary-dark;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+
+  h2 {
+    color: $primary-light;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+  }
+}
+
+.success-message {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: lighten($accent-purple, 10%);
+  color: $primary-light;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  text-align: center;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease-in-out;
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    top: -40px;
+  }
+}
+
+.order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  label {
+    color: $primary-light;
+    font-weight: 500;
+  }
+
+  input, textarea, select {
+    padding: 0.8rem 1rem;
+    border: 2px solid lighten($primary-dark, 15%);
+    border-radius: 5px;
+    background: lighten($primary-dark, 5%);
+    color: $primary-light;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: cursive;
+
+    &:focus {
+      outline: none;
+      border-color: $accent-purple;
+      box-shadow: 0 0 0 2px rgba($accent-purple, 0.3);
+    }
+
+    &::placeholder {
+      color: lighten($primary-dark, 40%);
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+}
+
+.loading {
+  color: $accent-yellow;
+  text-align: center;
+  padding: 1rem;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, $accent-purple, darken($accent-purple, 10%));
+  color: $primary-light;
+  border: none;
+  padding: 1rem;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: cursive;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  &:hover {
+    background: linear-gradient(135deg, lighten($accent-purple, 5%), $accent-purple);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba($accent-purple, 0.3);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    background: lighten($primary-dark, 15%);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
