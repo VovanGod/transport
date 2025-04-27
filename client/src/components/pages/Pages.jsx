@@ -1,20 +1,36 @@
-import React from 'react';
-import { Route, Routes, useLocation } from "react-router-dom";
-import { routes } from './routes.jsx';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import AuthForm from '../formLogin/FormLogin';
+import HomePage from '../HomePage';
+import Carsharing from '../carsharing/Carsharing';
+import Taxi from '../taxi/Taxi';
 
 const Pages = () => {
-    const location = useLocation();
-    return (
-        <Routes location={location} key={location.pathname}>
-            {routes.map((route, index) => (
-                <Route 
-                    key={index}
-                    path={route.path} 
-                    element={route.element}
-                />
-            ))}
-        </Routes>
-    );
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const user = localStorage.getItem('user');
+    setIsAuthenticated(!!user);
+  }, []);
+
+  return (
+    <Routes>
+      <Route 
+        path="/" 
+        element={isAuthenticated ? <Navigate to="/user" /> : <Navigate to="/login" />} 
+      />
+      <Route 
+        path="/user" 
+        element={isAuthenticated ? <HomePage /> : <Navigate to="/login" />} 
+      />
+      <Route path="/carsharing/" element={<Carsharing />} />
+      <Route path="/taxi/" element={<Taxi />} />
+      <Route 
+        path="/login/" 
+        element={isAuthenticated ? <Navigate to="/user" /> : <AuthForm setIsAuthenticated={setIsAuthenticated} />} 
+      />
+    </Routes>
+  );
 };
 
 export default Pages;

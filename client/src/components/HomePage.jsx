@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
     useEffect(() => {
@@ -13,9 +14,17 @@ const HomePage = () => {
     
         fetchCars();
       }, []);
+
+      const navigate = useNavigate();
+
+      const handleLogout = () => {
+        localStorage.removeItem('user');
+        navigate('/login');
+        window.location.reload();
+      };
     return (
         <div className='mainPg'>
-            <a href='/login/' className='login'>Войти</a>
+            <button onClick={handleLogout} className='login'>Выйти</button>
             <div className="logo">
                 <img src="/logo.png" alt="taxi" />
                 ИХАЛИ
