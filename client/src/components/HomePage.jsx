@@ -2,19 +2,6 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
-    useEffect(() => {
-        const fetchCars = async () => {
-            const response = await fetch('http://localhost:5000/api/cars');
-            if (!response.ok) {
-              throw new Error('Ошибка загрузки данных');
-            }
-            const data = await response.json();
-            console.log(data)
-        };
-    
-        fetchCars();
-      }, []);
-
       const navigate = useNavigate();
 
       const handleLogout = () => {

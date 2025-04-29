@@ -10,12 +10,36 @@ const AdminPanel = () => {
         window.location.reload();
       };
     return (
-        <div className="admin-panel">
+        <div className='mainPg adminPage'>
             <button onClick={handleLogout} className='login'>Выйти</button>
-            <h1>Административная панель</h1>
-            <div className="admin-content">
-                {/* Здесь будет контент админки */}
-                <p>Добро пожаловать, администратор!</p>
+            <div className="logo">
+                <img src="/hacker.png" alt="taxi" />
+                ADMIN
+            </div>
+            <p>
+                абсолютная власть <br /> по редактированию записей
+            </p>
+            <div className="adminPage-wrapper">
+                <a href="#" className='card'>
+                    <img src="/puzzle.png" alt="" />
+                    <div className='type'>Каршеринг</div>
+                    <div className='text'>Заявки на аренду автомобиля</div>
+                </a>
+                <a href="#" className='card'>
+                    <img src="/puzzle.png" alt="" />
+                    <div className='type'>Каршеринг</div>
+                    <div className='text'>Автопарк</div>
+                </a>
+                <a href="#" className='card'>
+                    <img src="/puzzle.png" alt="" />
+                    <div className='type'>Такси</div>
+                    <div className='text'>Заявки на поездку</div>
+                </a>
+                <a href="#" className='card'>
+                    <img src="/puzzle.png" alt="" />
+                    <div className='type'>Такси</div>
+                    <div className='text'>Водители</div>
+                </a>
             </div>
         </div>
     );

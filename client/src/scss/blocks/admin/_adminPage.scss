@@ -1,0 +1,57 @@
+.adminPage {
+    font-family: "Sansation", sans-serif;
+    &-wrapper {
+        display: flex;
+        justify-content: center;
+        column-gap: 50px;
+        width: 100%;
+        margin-top: 140px;
+    }
+    .logo {
+        color: #f44336;
+    }
+
+    .card {
+        width: 320px;
+        display: flex;
+        flex-direction: column;
+        background: linear-gradient(145deg, #2a2a2a, #2a2a2a);
+        border-radius: 12px;
+        padding: 24px;
+        color: #fff;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+        border: 1px solid #333;
+        
+        &:hover {
+          box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+          border-color: #555;
+        }
+        
+        img {
+          width: 120px;
+          height: 120px;
+          margin-bottom: 20px;
+          transition: transform 0.3s ease;
+          margin: 0 auto;
+          transform: rotate(-90deg);
+        }
+        
+        .type {
+          font-size: 36px;
+          font-weight: 600;
+          color: #FFA726;
+          text-transform: uppercase;
+          letter-spacing: 1.5px;
+          margin-top: 20px;
+        }
+        
+        .text {
+          font-size: 22px;
+          margin-top: 20px;
+          color: #e0e0e0;
+          text-transform: uppercase;
+        }
+      }
+      
+}
