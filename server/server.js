@@ -93,33 +93,47 @@ app.post('/api/register', async (req, res) => {
 app.post('/api/login', async (req, res) => {
     const { username, password } = req.body;
     
-    try {
-        const { rows } = await pool.query(
-            'SELECT * FROM users WHERE username = $1 AND password_hash = $2',
-            [username, password]
-        );
-
-        if (rows.length > 0) {
-            res.json({ 
-                success: true, 
-                user: {
-                    id: rows[0].id,
-                    username: rows[0].username,
-                    email: rows[0].email,
-                    is_admin: rows[0].is_admin
-                }
-            });
-        } else {
-            res.status(401).json({ 
-                success: false, 
-                error: 'Неверный логин или пароль' 
-            });
+    // Проверка на админа
+    if (username === 'admin' && password === '12345') {
+      return res.json({ 
+        success: true, 
+        user: {
+          id: 0,
+          username: 'admin',
+          email: 'admin@example.com',
+          is_admin: true
         }
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Ошибка сервера при входе' });
+      });
     }
-});
+    
+    // Проверка обычных пользователей
+    try {
+      const { rows } = await pool.query(
+        'SELECT * FROM users WHERE username = $1 AND password_hash = $2',
+        [username, password]
+      );
+  
+      if (rows.length > 0) {
+        res.json({ 
+          success: true, 
+          user: {
+            id: rows[0].id,
+            username: rows[0].username,
+            email: rows[0].email,
+            is_admin: rows[0].is_admin
+          }
+        });
+      } else {
+        res.status(401).json({ 
+          success: false, 
+          error: 'Неверный логин или пароль' 
+        });
+      }
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Ошибка сервера при входе' });
+    }
+  });
 
 // Маршрут для получения водителей
 app.get('/api/drivers', async (req, res) => {

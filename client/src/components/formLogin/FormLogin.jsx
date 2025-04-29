@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const AuthForm = ({setIsAuthenticated}) => {
+const AuthForm = ({onLoginSuccess}) => {
     const [isActive, setIsActive] = useState(false);
     const [formData, setFormData] = useState({
         username: '',
@@ -51,31 +51,35 @@ const AuthForm = ({setIsAuthenticated}) => {
         e.preventDefault();
         
         try {
-            const response = await axios.post('http://localhost:5000/api/login', {
-                username: formData.loginUsername,
-                password: formData.loginPassword
-            });
+          const response = await axios.post('http://localhost:5000/api/login', {
+            username: formData.loginUsername,
+            password: formData.loginPassword
+          });
     
-            if (response.data.success) {
-                localStorage.setItem('user', JSON.stringify(response.data.user));
-                setIsAuthenticated(true);
-                navigate('/user');
+          if (response.data.success) {
+            const userData = response.data.user;
+            onLoginSuccess(userData);
+            
+            if (userData.is_admin) {
+                navigate('/admin')
             } else {
-                setNotification({
-                    show: true,
-                    message: 'Неверный логин или пароль',
-                    type: 'error'
-                });
+                navigate('/user')
             }
-        } catch (err) {
+          } else {
             setNotification({
-                show: true,
-                message: err.response?.data?.error || 'Ошибка при входе',
-                type: 'error'
+              show: true,
+              message: response.data.error || 'Неверный логин или пароль',
+              type: 'error'
             });
-            console.error('Ошибка входа:', err);
+          }
+        } catch (err) {
+          setNotification({
+            show: true,
+            message: err.response?.data?.error || 'Ошибка при входе',
+            type: 'error'
+          });
         }
-    };
+      };
 
     const handleSignUpSubmit = async (e) => {
         e.preventDefault();
