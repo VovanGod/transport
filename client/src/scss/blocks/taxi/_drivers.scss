@@ -1,0 +1,83 @@
+.taxi-drivers {
+    background-color: var(--dark);
+    text-align: center;
+    padding: 80px 0;
+    .wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 60px;
+        margin-top: 60px;
+    }
+
+    h1 {
+      font-family: "Sansation", sans-serif;
+      font-size: 60px;
+      color: #fff;
+    }
+
+    .card {    
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(var(--dark), 0.15);
+        overflow: hidden;
+        width: 240px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+        font-family: 'Arial', sans-serif;
+        position: relative;
+        padding-bottom: 10px;
+      
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 12px 25px rgba(var(--dark), 0.2);
+          
+          .name {
+            color: #9110e0;
+          }
+        }
+      
+        img {
+          width: 100%;
+          height: 180px;
+          object-fit: cover;
+          border-bottom: 3px solid var(--orange);
+          transition: opacity 0.3s ease;
+          
+          &:hover {
+            opacity: 0.9;
+          }
+        }
+      
+        .name {
+          font-size: 22px;
+          font-weight: 700;
+          color: var(--dark);
+          margin: 16px 0 4px;
+          padding: 0 12px;
+          transition: color 0.3s ease;
+        }
+      
+        .stage {
+          font-size: 16px;
+          color: #9110e0;
+          margin-bottom: 16px;
+          padding: 0 12px;
+          position: relative;
+          display: inline-block;
+          margin-bottom: 10px;
+          
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, #9110e0, var(--orange));
+            border-radius: 2px;
+          }
+        }
+      }
+}

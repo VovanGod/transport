@@ -1,9 +1,11 @@
 const express = require('express');
 const { Pool } = require('pg');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 app.use(cors());
+app.use(express.static(path.join(__dirname, '../client/public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -118,6 +120,41 @@ app.post('/api/login', async (req, res) => {
         res.status(500).json({ error: 'Ошибка сервера при входе' });
     }
 });
+
+// Маршрут для получения водителей
+app.get('/api/drivers', async (req, res) => {
+    try {
+        const { rows } = await pool.query(`
+            SELECT id, name, experience, 
+                   '/images/drivers/' || image_url as image_url 
+            FROM drivers
+        `);
+        res.json(rows);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Ошибка сервера' });
+    }
+});
+
+// отправка заяки на такси
+app.post('/api/taxi-orders', async (req, res) => {
+    const { name, phone, from_address, to_address, car_type } = req.body;
+    
+    try {
+      const { rows } = await pool.query(
+        `INSERT INTO taxi_orders 
+         (name, phone, from_address, to_address, car_type) 
+         VALUES ($1, $2, $3, $4, $5) 
+         RETURNING *`,
+        [name, phone, from_address, to_address, car_type]
+      );
+      
+      res.status(201).json(rows[0]);
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Ошибка при создании заявки' });
+    }
+  });
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

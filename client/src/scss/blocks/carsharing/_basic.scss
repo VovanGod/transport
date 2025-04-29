@@ -1,4 +1,4 @@
-.carsharing-basic {
+.carsharing-basic, .taxi-basic {
     position: relative;
     text-align: center;
     width: 100%;
@@ -26,7 +26,7 @@
             justify-content: center;
             column-gap: 8px;
             align-items: center;
-            font-family: "Playwrite AU SA", cursive;
+            font-family: "Sansation", sans-serif;
             font-size: 26px;
             line-height: 30px;
             color: var(--orange);
@@ -96,7 +96,7 @@
         font-weight: 700;
         color: #fff;
         text-align: left;
-        font-family: cursive;
+        font-family: "Sansation", sans-serif;
         user-select: none;
     }
 

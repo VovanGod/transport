@@ -1,10 +1,15 @@
 import React from 'react';
+import Basic from './Basic';
+import Drivers from './Drivers';
+import Bid from './Bid';
 
 const Taxi = () => {
     return (
-        <div>
-            This is taxi
-        </div>
+        <>
+            <Basic/>
+            <Drivers/>
+            <Bid/>
+        </>
     );
 };
 

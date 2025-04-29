@@ -141,7 +141,7 @@ legend {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-family: "Playwrite AU SA", cursive;
+  font-family: "Sansation", sans-serif;
   font-size: 36px;
   line-height: 30px;
   color: var(--orange);
@@ -155,7 +155,7 @@ legend {
   color: #fff;
   font-size: 18px;
   text-transform: uppercase;
-  font-family: "Playwrite AU SA", cursive;
+  font-family: "Sansation", sans-serif;
 }
 .mainPg .background {
   display: -webkit-box;
@@ -205,7 +205,7 @@ legend {
   padding: 20px 30px;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
-  font-family: "Playwrite AU SA", cursive;
+  font-family: "Sansation", sans-serif;
   font-size: 30px;
   color: #fff;
   text-transform: uppercase;
@@ -220,11 +220,11 @@ legend {
   border: 1px #fff solid;
   text-transform: uppercase;
   color: #fff;
-  font-size: 16px;
+  font-size: 18px;
   border-radius: 8px;
   font-weight: 500;
-  font-family: "Playwrite AU SA", cursive;
-  padding: 6px 20px;
+  font-family: "Sansation", sans-serif;
+  padding: 12px 30px;
   -webkit-transition: all 0.08s ease-in;
   transition: all 0.08s ease-in;
 }
@@ -567,7 +567,7 @@ legend {
             transform: translateY(-20px);
   }
 }
-.carsharing-basic {
+.carsharing-basic, .taxi-basic {
   position: relative;
   text-align: center;
   width: 100%;
@@ -575,14 +575,14 @@ legend {
   -webkit-animation: page 0.5s ease-in-out forwards;
           animation: page 0.5s ease-in-out forwards;
 }
-.carsharing-basic .container {
+.carsharing-basic .container, .taxi-basic .container {
   padding: 0 280px;
 }
-.carsharing-basic .login {
+.carsharing-basic .login, .taxi-basic .login {
   top: 20px;
   right: 40px;
 }
-.carsharing-basic header {
+.carsharing-basic header, .taxi-basic header {
   background: var(--dark);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -595,7 +595,7 @@ legend {
           align-items: center;
   padding: 20px 280px;
 }
-.carsharing-basic header .logo {
+.carsharing-basic header .logo, .taxi-basic header .logo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -608,7 +608,7 @@ legend {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-family: "Playwrite AU SA", cursive;
+  font-family: "Sansation", sans-serif;
   font-size: 26px;
   line-height: 30px;
   color: var(--orange);
@@ -617,10 +617,10 @@ legend {
       -ms-user-select: none;
           user-select: none;
 }
-.carsharing-basic header .logo img {
+.carsharing-basic header .logo img, .taxi-basic header .logo img {
   width: 60px;
 }
-.carsharing-basic header ul {
+.carsharing-basic header ul, .taxi-basic header ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -628,7 +628,7 @@ legend {
      -moz-column-gap: 50px;
           column-gap: 50px;
 }
-.carsharing-basic header ul li a {
+.carsharing-basic header ul li a, .taxi-basic header ul li a {
   font-size: 20px;
   color: #fff;
   letter-spacing: 3px;
@@ -637,10 +637,10 @@ legend {
   position: relative;
   padding-bottom: 6px;
 }
-.carsharing-basic header ul li a:hover {
+.carsharing-basic header ul li a:hover, .taxi-basic header ul li a:hover {
   color: var(--orange);
 }
-.carsharing-basic header ul li a:after {
+.carsharing-basic header ul li a:after, .taxi-basic header ul li a:after {
   content: "";
   display: block;
   width: 0%;
@@ -655,19 +655,19 @@ legend {
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
-.carsharing-basic header ul li a:hover::after {
+.carsharing-basic header ul li a:hover::after, .taxi-basic header ul li a:hover::after {
   width: 100%;
 }
-.carsharing-basic header ul .tel {
+.carsharing-basic header ul .tel, .taxi-basic header ul .tel {
   font-size: 20px;
   color: var(--orange);
   padding-bottom: 0;
   letter-spacing: 0;
 }
-.carsharing-basic header ul .tel:after {
+.carsharing-basic header ul .tel:after, .taxi-basic header ul .tel:after {
   display: none;
 }
-.carsharing-basic h1 {
+.carsharing-basic h1, .taxi-basic h1 {
   display: block;
   margin-top: 160px;
   margin-bottom: 0;
@@ -677,13 +677,13 @@ legend {
   font-weight: 700;
   color: #fff;
   text-align: left;
-  font-family: cursive;
+  font-family: "Sansation", sans-serif;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
 }
-.carsharing-basic .button {
+.carsharing-basic .button, .taxi-basic .button {
   display: block;
   padding: 22px 0;
   width: 280px;
@@ -698,7 +698,7 @@ legend {
   -webkit-transition: all 0.1s ease-in;
   transition: all 0.1s ease-in;
 }
-.carsharing-basic .button:hover {
+.carsharing-basic .button:hover, .taxi-basic .button:hover {
   background: transparent;
   color: #fff;
 }
@@ -746,7 +746,7 @@ legend {
   margin-top: 80px;
 }
 .carsharing-cars h1 {
-  font-family: cursive;
+  font-family: "Sansation", sans-serif;
   font-size: 60px;
   color: #fff;
 }
@@ -789,13 +789,13 @@ legend {
 .carsharing-cars .card .name {
   font-size: 24px;
   margin: 20px 0;
-  font-family: "Playwrite AU SA", cursive;
+  font-family: "Sansation", sans-serif;
   line-height: 20px;
   margin-left: -5px;
 }
 .carsharing-cars .card p {
   font-size: 16px;
-  font-family: cursive;
+  font-family: "Sansation", sans-serif;
   color: var(--orange);
 }
 .carsharing-cars .card .price {
@@ -907,7 +907,7 @@ legend {
   font-size: 1rem;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  font-family: cursive;
+  font-family: "Sansation", sans-serif;
 }
 .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
   outline: none;
@@ -948,7 +948,7 @@ legend {
   padding: 1rem;
   border-radius: 5px;
   font-size: 16px;
-  font-family: cursive;
+  font-family: "Sansation", sans-serif;
   cursor: pointer;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
@@ -999,5 +999,297 @@ legend {
     opacity: 1;
     -webkit-transform: translateY(0);
             transform: translateY(0);
+  }
+}
+.taxi-drivers {
+  background-color: var(--dark);
+  text-align: center;
+  padding: 80px 0;
+}
+.taxi-drivers .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 60px;
+  margin-top: 60px;
+}
+.taxi-drivers h1 {
+  font-family: "Sansation", sans-serif;
+  font-size: 60px;
+  color: #fff;
+}
+.taxi-drivers .card {
+  background-color: white;
+  border-radius: 12px;
+  -webkit-box-shadow: 0 8px 20px rgba(var(--dark), 0.15);
+          box-shadow: 0 8px 20px rgba(var(--dark), 0.15);
+  overflow: hidden;
+  width: 240px;
+  -webkit-transition: -webkit-transform 0.3s ease, -webkit-box-shadow 0.3s ease;
+  transition: -webkit-transform 0.3s ease, -webkit-box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, -webkit-transform 0.3s ease, -webkit-box-shadow 0.3s ease;
+  text-align: center;
+  font-family: "Arial", sans-serif;
+  position: relative;
+  padding-bottom: 10px;
+}
+.taxi-drivers .card:hover {
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+  -webkit-box-shadow: 0 12px 25px rgba(var(--dark), 0.2);
+          box-shadow: 0 12px 25px rgba(var(--dark), 0.2);
+}
+.taxi-drivers .card:hover .name {
+  color: #9110e0;
+}
+.taxi-drivers .card img {
+  width: 100%;
+  height: 180px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-bottom: 3px solid var(--orange);
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+.taxi-drivers .card img:hover {
+  opacity: 0.9;
+}
+.taxi-drivers .card .name {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--dark);
+  margin: 16px 0 4px;
+  padding: 0 12px;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+.taxi-drivers .card .stage {
+  font-size: 16px;
+  color: #9110e0;
+  margin-bottom: 16px;
+  padding: 0 12px;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.taxi-drivers .card .stage::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 40px;
+  height: 2px;
+  background: -webkit-gradient(linear, left top, right top, from(#9110e0), to(var(--orange)));
+  background: linear-gradient(90deg, #9110e0, var(--orange));
+  border-radius: 2px;
+}
+
+.taxi-bid {
+  background: #000000;
+  height: 80vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.taxi-form {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  width: 800px;
+  margin: 0 auto;
+  font-family: "Roboto", sans-serif;
+}
+
+.taxi-order-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1.5rem;
+}
+.taxi-order-form .form-title {
+  color: #333;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.taxi-order-form .form-group {
+  position: relative;
+}
+.taxi-order-form .form-group input, .taxi-order-form .form-group select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #333;
+  background-color: #f9f9f9;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.taxi-order-form .form-group input:focus, .taxi-order-form .form-group select:focus {
+  outline: none;
+  border-color: #b0b0b0;
+  background-color: white;
+}
+.taxi-order-form .form-group input::-webkit-input-placeholder, .taxi-order-form .form-group select::-webkit-input-placeholder {
+  color: #999;
+  opacity: 1;
+}
+.taxi-order-form .form-group input::-moz-placeholder, .taxi-order-form .form-group select::-moz-placeholder {
+  color: #999;
+  opacity: 1;
+}
+.taxi-order-form .form-group input:-ms-input-placeholder, .taxi-order-form .form-group select:-ms-input-placeholder {
+  color: #999;
+  opacity: 1;
+}
+.taxi-order-form .form-group input::-ms-input-placeholder, .taxi-order-form .form-group select::-ms-input-placeholder {
+  color: #999;
+  opacity: 1;
+}
+.taxi-order-form .form-group input::placeholder, .taxi-order-form .form-group select::placeholder {
+  color: #999;
+  opacity: 1;
+}
+.taxi-order-form .car-type-options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+}
+.taxi-order-form .car-type-options .car-type-label {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-align: center;
+  padding: 0.8rem;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  color: #555;
+  border: 2px solid #e0e0e0;
+  font-size: 0.9rem;
+}
+.taxi-order-form .car-type-options .car-type-label.active {
+  background-color: var(--orange);
+  color: #fff;
+  border-color: #9110e7;
+  font-weight: 500;
+}
+.taxi-order-form .car-type-options .car-type-label input {
+  display: none;
+}
+.taxi-order-form .submit-btn {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+.taxi-order-form .submit-btn:hover {
+  background-color: #222;
+}
+
+@media (max-width: 600px) {
+  .taxi-order-container {
+    padding: 1.5rem;
+  }
+  .car-type-options {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+.success-notification {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 8px;
+  -webkit-animation: fadeIn 0.3s ease;
+          animation: fadeIn 0.3s ease;
+}
+
+.success-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.success-icon {
+  width: 48px;
+  height: 48px;
+  color: #28a745;
+  margin-bottom: 1rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }/*# sourceMappingURL=main.css.map */
