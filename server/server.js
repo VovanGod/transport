@@ -29,17 +29,62 @@ app.get('/api/cars', async (req, res) => {
 });
 
 app.post('/api/cars', async (req, res) => {
-    const { transmission, model, power, price_per_day, image_url } = req.body;
-    try {
-        const { rows } = await pool.query(
-            'INSERT INTO cars (transmission, model, power, price_per_day, image_url) VALUES ($1, $2, $3, $4, $5) RETURNING *',
-            [transmission, model, power, price_per_day, image_url]
-        );
-        res.status(201).json(rows[0]);
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Internal server error' });
+  try {
+    const { model, transmission, power, price_per_day, image_url } = req.body;
+    
+    if (!model || !transmission || !power || !price_per_day) {
+      return res.status(400).json({ message: 'Все обязательные поля должны быть заполнены' });
     }
+
+    const result = await pool.query(
+      'INSERT INTO cars (model, transmission, power, price_per_day, image_url) VALUES ($1, $2, $3, $4, $5) RETURNING *',
+      [model, transmission, power, price_per_day, image_url || null]
+    );
+
+    res.status(201).json(result.rows[0]);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Ошибка при добавлении автомобиля' });
+  }
+});
+
+app.delete('/api/cars/:id', async (req, res) => {
+  try {
+      const { id } = req.params;
+      const result = await pool.query('DELETE FROM cars WHERE id = $1 RETURNING *', [id]);
+      
+      if (result.rowCount === 0) {
+          return res.status(404).json({ error: 'Автомобиль не найден' });
+      }
+      
+      res.status(200).json({ success: true, deletedCar: result.rows[0] });
+  } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Ошибка при удалении автомобиля' });
+  }
+});
+
+
+// orders
+app.get('/api/orders', async (req, res) => {
+  try {
+      const { rows } = await pool.query('SELECT * FROM orders');
+      res.json(rows);
+  } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Internal server error' });
+  }
+})
+
+app.delete('/api/orders/:id', async (req, res) => {
+  try {
+      const { id } = req.params;
+      await pool.query('DELETE FROM orders WHERE id = $1', [id]);
+      res.status(200).json({ success: true });
+  } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Ошибка при удалении автомобиля' });
+  }
 });
 
 app.post('/api/orders', async (req, res) => {

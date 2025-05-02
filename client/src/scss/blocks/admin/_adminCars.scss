@@ -1,0 +1,53 @@
+.admin-cars {
+    animation: page 0.5s ease-in-out forwards;
+    .card {
+        height: 510px;
+        border: none;
+
+        &:hover {
+            border: none;
+        }
+
+        .price {
+            &:hover {
+                background: #9110e7;
+                color: #fff;
+            }
+        }
+
+        &-del {
+            transition: cardDelete 0.5s ease-in;
+        }
+    }
+    
+    .delete {
+        background-color: #f44336;
+        padding: 15px 10px;
+        width: 180px;
+    
+        margin: 0 auto;
+        margin-top: 20px;
+
+        color: #fff;
+        border-radius: 10px;
+        text-transform: uppercase;
+        font-family: "Sansation", sans-serif;
+
+        border: 2px #f44336 solid;
+        transition: all 0.05s ease-in-out;
+
+        &:hover {
+            background-color: transparent;
+            color: #f44336;
+        }
+    }
+}
+
+@keyframes cardDelete {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+  }

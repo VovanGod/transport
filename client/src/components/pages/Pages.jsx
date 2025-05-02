@@ -5,6 +5,9 @@ import HomePage from '../HomePage';
 import Carsharing from '../carsharing/Carsharing';
 import Taxi from '../taxi/Taxi';
 import AdminPanel from '../admin/AdminPanel';
+import CarsheringBid from '../admin/CarsheringBid';
+import CarsheringCars from '../admin/CarsheringCars';
+import CarsheringForm from '../admin/CarsheringForm';
 
 const Pages = () => {
   const [authState, setAuthState] = useState({
@@ -72,6 +75,9 @@ const Pages = () => {
             : <AuthForm onLoginSuccess={handleLoginSuccess} />
         } 
       />
+       <Route path="/adminCarsh-cars/" element={<CarsheringCars />} />
+       <Route path="/adminCarsh-bid/" element={<CarsheringBid />} />
+       <Route path="/adminCarsh-form/" element={<CarsheringForm />} />
     </Routes>
   );
 };

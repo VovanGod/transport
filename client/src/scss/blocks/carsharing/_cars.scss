@@ -87,3 +87,29 @@
         }
     }
 }
+
+.delete-error {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    padding: 15px 30px;
+    border-radius: 12px;
+    color: #fff;
+    background-color: #f44336;
+    animation: view 3s ease-in-out forwards;
+}
+
+@keyframes view {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
