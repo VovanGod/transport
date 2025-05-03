@@ -8,6 +8,9 @@ import AdminPanel from '../admin/AdminPanel';
 import CarsheringBid from '../admin/CarsheringBid';
 import CarsheringCars from '../admin/CarsheringCars';
 import CarsheringForm from '../admin/CarsheringForm';
+import TaxiOrders from '../admin/TaxiOrders';
+import TaxiDrivers from '../admin/TaxiDrivers';
+import AddDriverForm from '../admin/AddDriveForm';
 
 const Pages = () => {
   const [authState, setAuthState] = useState({
@@ -78,6 +81,15 @@ const Pages = () => {
        <Route path="/adminCarsh-cars/" element={<CarsheringCars />} />
        <Route path="/adminCarsh-bid/" element={<CarsheringBid />} />
        <Route path="/adminCarsh-form/" element={<CarsheringForm />} />
+       <Route path="/adminTaxi-orders/" element={<TaxiOrders />} />
+       <Route path="/adminTaxi-drivers/" element={<TaxiDrivers />} />
+       <Route path="/adminTaxi-driveForm/" element={
+        <AddDriverForm onDriverAdded={(newDriver) => 
+          {
+            setDrivers(prev => [...prev, newDriver]);
+          }} 
+        />} 
+       />
     </Routes>
   );
 };

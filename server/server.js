@@ -2,10 +2,12 @@ const express = require('express');
 const { Pool } = require('pg');
 const cors = require('cors');
 const path = require('path');
+const multer = require('multer');
+const fs = require('fs');
 
 const app = express();
 app.use(cors());
-app.use(express.static(path.join(__dirname, '../client/public')));
+app.use('/images', express.static(path.join(__dirname, '../client/public/images')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -182,20 +184,72 @@ app.post('/api/login', async (req, res) => {
 
 // Маршрут для получения водителей
 app.get('/api/drivers', async (req, res) => {
-    try {
-        const { rows } = await pool.query(`
-            SELECT id, name, experience, 
-                   '/images/drivers/' || image_url as image_url 
-            FROM drivers
-        `);
-        res.json(rows);
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Ошибка сервера' });
-    }
+  try {
+    const { rows } = await pool.query(`
+      SELECT id, name, experience, 
+        CASE 
+          WHEN image_url IS NOT NULL THEN '/images/drivers/' || image_url
+          ELSE '/images/drivers/default.png'
+        END as image_url
+      FROM drivers
+    `);
+    res.json(rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Ошибка сервера' });
+  }
 });
 
-// отправка заяки на такси
+app.delete('/api/drivers/:id', async (req, res) => {
+  try {
+      const { id } = req.params;
+
+      const checkResult = await pool.query('SELECT id FROM drivers WHERE id = $1', [id]);
+      if (checkResult.rows.length === 0) {
+          return res.status(404).json({ error: 'Водитель не найден' });
+      }
+
+      const result = await pool.query('DELETE FROM drivers WHERE id = $1 RETURNING *', [id]);
+      
+      res.status(200).json({ 
+          success: true, 
+          deletedDriver: result.rows[0] 
+      });
+  } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Ошибка при удалении водителя' });
+  }
+});
+
+//TAXI
+
+app.get('/api/taxi-orders', async (req, res) => {
+  try {
+      const { rows } = await pool.query('SELECT * FROM taxi_orders');
+      res.json(rows);
+  } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Internal server error' });
+  }
+})
+
+app.delete('/api/taxi-orders/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await pool.query('DELETE FROM taxi_orders WHERE id = $1 RETURNING *', [id]);
+    
+    if (result.rowCount === 0) {
+      return res.status(404).json({ error: 'Заявка не найдена' });
+    }
+    
+    res.status(200).json({ success: true, deletedOrder: result.rows[0] });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Ошибка при удалении заявки' });
+  }
+});
+
+
 app.post('/api/taxi-orders', async (req, res) => {
     const { name, phone, from_address, to_address, car_type } = req.body;
     
@@ -214,6 +268,87 @@ app.post('/api/taxi-orders', async (req, res) => {
       res.status(500).json({ error: 'Ошибка при создании заявки' });
     }
   });
+
+
+
+// Multer + taxi add driver
+
+// Создаем папку для загрузок, если ее нет
+const uploadDir = path.join(__dirname, '../client/public/images/drivers');
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, uploadDir);
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    const ext = path.extname(file.originalname);
+    cb(null, uniqueSuffix + ext);
+  }
+});
+
+const upload = multer({
+  storage: storage,
+  fileFilter: function (req, file, cb) {
+    if (file.mimetype.startsWith('image/')) {
+      cb(null, true);
+    } else {
+      cb(new Error('Разрешены только изображения'), false);
+    }
+  },
+  limits: {
+    fileSize: 5 * 1024 * 1024 // 5MB
+  }
+});
+
+app.post('/api/drivers', upload.single('image'), async (req, res) => {
+  try {
+    const { name, experience } = req.body;
+    
+    if (!name || !experience) {
+      return res.status(400).json({ 
+        success: false,
+        message: 'Имя и стаж обязательны' 
+      });
+    }
+
+    // Обработка изображения
+    let imageUrl = 'default.png';
+    if (req.file) {
+      imageUrl = req.file.filename;
+      console.log('Файл сохранен как:', imageUrl);
+    }
+
+    const result = await pool.query(
+      'INSERT INTO drivers (name, experience, image_url) VALUES ($1, $2, $3) RETURNING *',
+      [name, experience, imageUrl]
+    );
+
+    const driver = result.rows[0];
+    // Возвращаем полный URL изображения
+    driver.image_url = `/images/drivers/${driver.image_url}`;
+
+    res.status(201).json({ 
+      success: true,
+      driver: driver,
+      message: 'Водитель успешно добавлен'
+    });
+  } catch (err) {
+    console.error('Ошибка при добавлении водителя:', err);
+    
+    if (req.file) {
+      fs.unlink(path.join(uploadDir, req.file.filename), () => {});
+    }
+    
+    res.status(500).json({ 
+      success: false,
+      message: err.message || 'Ошибка при добавлении водителя'
+    });
+  }
+});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

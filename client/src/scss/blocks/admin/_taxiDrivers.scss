@@ -1,0 +1,30 @@
+.taxi-drivers {
+    padding-top: 100px;
+    .wrapper {
+        margin-top: 80px;
+        flex-wrap: wrap;
+    }
+    .delete-btn {
+        width: 60%;
+        margin: 0 auto;
+        margin-top: 20px;
+        padding: 0.6rem;
+        background: rgba($error-red, 0.1);
+        color: $error-red;
+        border: 1px solid $error-red;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 600;
+    
+        &:hover:not(:disabled) {
+            background: rgba($error-red, 0.3);
+            transform: translateY(-2px);
+        }
+    
+        &:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+    }
+}

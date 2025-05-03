@@ -35,15 +35,20 @@ const AdminPanel = () => {
                     <div className='type'>Каршеринг</div>
                     <div className='text'>Добавить автомобиль</div>
                 </a>
-                <a href="#" className='card'>
+                <a href="/adminTaxi-orders/" className='card'>
                     <img src="/puzzle.png" alt="" />
                     <div className='type'>Такси</div>
                     <div className='text'>Заявки на поездку</div>
                 </a>
-                <a href="#" className='card'>
+                <a href="/adminTaxi-drivers/" className='card'>
                     <img src="/puzzle.png" alt="" />
                     <div className='type'>Такси</div>
                     <div className='text'>Водители</div>
+                </a>
+                <a href="/adminTaxi-driveForm/" className='card'>
+                    <img src="/puzzle.png" alt="" />
+                    <div className='type'>Такси</div>
+                    <div className='text'>Добавить водителя</div>
                 </a>
             </div>
         </div>

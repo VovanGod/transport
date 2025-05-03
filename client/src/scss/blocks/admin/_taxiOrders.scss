@@ -1,0 +1,246 @@
+// Переменные цветов
+$primary-dark: #25242a;
+$accent-yellow: #e4a700;
+$accent-purple: #9110e7;
+$text-light: #ffffff;
+$text-secondary: #b8b8b8;
+$error-red: #ff4d4d;
+
+
+.taxi-orders-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+  color: $text-light;
+  font-family: 'Arial', sans-serif;
+  animation: page 0.5s ease-in-out forwards;
+
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+  }
+
+  h1 {
+    font-family: "Sansation", sans-serif;
+    font-size: 60px;
+    color: #fff;
+    margin-top: 50px;
+    text-align: center;
+  }
+}
+
+.loading, 
+.error, 
+.no-orders {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  border-radius: 8px;
+}
+
+.error {
+  background: rgba($error-red, 0.1);
+  color: $error-red;
+  border: 1px solid $error-red;
+}
+
+.no-orders {
+  background: rgba($accent-purple, 0.1);
+  color: $text-secondary;
+  border: 1px dashed $accent-purple;
+}
+
+.orders-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+  padding: 0.5rem;
+}
+
+.order-card {
+  background: lighten($primary-dark, 5%);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border-left: 4px solid $accent-purple;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    
+    &::after {
+      opacity: 0.1;
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, $accent-purple, $accent-yellow);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+  }
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid rgba($accent-yellow, 0.2);
+  position: relative;
+  z-index: 1;
+
+  h3 {
+    margin: 0;
+    color: $accent-yellow;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+
+  .order-date {
+    color: $text-secondary;
+    font-size: 0.85rem;
+    font-style: italic;
+  }
+}
+
+.order-details {
+  position: relative;
+  z-index: 1;
+
+  .detail-row {
+    display: flex;
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .detail-label {
+    color: $accent-purple;
+    margin-right: 1rem;
+    font-weight: 600;
+    min-width: 80px;
+    flex-shrink: 0;
+  }
+}
+
+.car-type {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  &.business {
+    background: rgba($accent-purple, 0.2);
+    color: lighten($accent-purple, 15%);
+    border: 1px solid $accent-purple;
+  }
+
+  &.comfort {
+    background: rgba($accent-yellow, 0.2);
+    color: lighten($accent-yellow, 15%);
+    border: 1px solid $accent-yellow;
+  }
+
+  &.economy {
+    background: rgba(#4caf50, 0.2);
+    color: lighten(#4caf50, 15%);
+    border: 1px solid #4caf50;
+  }
+}
+
+.delete-btn {
+  width: 100%;
+  padding: 0.8rem;
+  background: rgba($error-red, 0.1);
+  color: $error-red;
+  border: 1px solid $error-red;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  &:hover:not(:disabled) {
+    background: rgba($error-red, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba($error-red, 0.2);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &::before {
+    content: '×';
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.order-card {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@media (max-width: 768px) {
+  .taxi-orders-container {
+    padding: 0.5rem;
+    
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .orders-list {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .order-card {
+    padding: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .order-details {
+    .detail-row {
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .detail-label {
+      margin-bottom: 0.2rem;
+    }
+  }
+}

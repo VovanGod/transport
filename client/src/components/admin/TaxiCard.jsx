@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Card = ({ driver }) => {
+const TaxiCard = ({ driver, onDelete, isDeleting }) => {
     return (
-        <div className="card">
+        <div className={`card ${isDeleting ? 'deleting' : ''}`}>
             <img 
                 src={driver.image_url} 
                 alt={`Фото ${driver.name}`}
@@ -12,6 +12,13 @@ const Card = ({ driver }) => {
             />
             <div className='name'>{driver.name}</div>
             <div className='stage'>Стаж: {driver.experience} {getYearWord(driver.experience)}</div>
+            <button 
+                className="delete-btn"
+                onClick={() => onDelete(driver.id)}
+                disabled={isDeleting}
+            >
+                {isDeleting ? 'Удаление...' : 'Удалить'}
+            </button>
         </div>
     );
 };
@@ -27,4 +34,4 @@ function getYearWord(years) {
     }
 }
 
-export default Card;
+export default TaxiCard;
