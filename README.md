@@ -4,13 +4,16 @@
 
 ### Frontend
 - **React** + **Vite**  
-- **SCSS** для стилей  
-- **Axios** для HTTP-запросов  
+- **SCSS** 
+- **Axios**
 
 ### Backend  
 - **Node.js** + **Express**  
 - **PostgreSQL** 
-- **CORS** 
+
+### Admin
+- Login: **admin**
+- Password: **12345** 
 
 ## Установка и запуск
 
