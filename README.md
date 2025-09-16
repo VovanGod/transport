@@ -51,6 +51,19 @@ public | drivers | table | postgres
 public | orders | table | postgres
 public | taxi_orders | table | postgres
 public | users | table | postgres
+```
+
+#### 1. Таблица cars - Автомобили
+```sql
+CREATE TABLE cars (
+    id SERIAL PRIMARY KEY,
+    transmission VARCHAR(20),
+    model VARCHAR(100),
+    power INTEGER,
+    price_per_day DECIMAL(10,2),
+    image_url TEXT
+);
+```
 
 ---
 
