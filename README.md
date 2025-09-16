@@ -37,6 +37,23 @@ Car Rental System — это веб-приложение, позволяющее
 
 ---
 
+## 🗃️ Структура базы данных
+
+### Таблицы базы данных
+
+```sql
+car_rental=# \dt
+List of relations
+Schema | Name | Type | Owner  
+---|---|---|---
+public | cars | table | postgres
+public | drivers | table | postgres  
+public | orders | table | postgres
+public | taxi_orders | table | postgres
+public | users | table | postgres
+
+---
+
 ## 🚀 Установка и запуск
 
 ### 1. Клонируйте репозиторий:
